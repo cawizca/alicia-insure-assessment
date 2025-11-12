@@ -121,8 +121,7 @@ export const AlbumDetail = ({
           <Box flexShrink={0}>
             <Image
               src={
-                getImageUrl() ||
-                'https://via.placeholder.com/300x300?text=No+Image'
+                getImageUrl() || 'https://placehold.co/600x400?text=No+Image'
               }
               alt={album.name}
               boxSize={{ base: '100%', md: '300px' }}
