@@ -1,7 +1,6 @@
-import { IconButton, Text, Box } from '@chakra-ui/react';
-import { Heart } from 'lucide-react';
-import { Track, TrackListProps } from '../types';
-import { useStore } from '../store/useStore';
+import { Box } from '@chakra-ui/react';
+import { TrackListProps } from '../types';
+import { TrackRow } from './TrackRow';
 
 /**
  * TrackList Component
@@ -15,33 +14,6 @@ export const TrackList = ({
   albumName,
   artistName,
 }: TrackListProps) => {
-  const { addFavourite, removeFavourite, isFavourite } = useStore();
-
-  const formatDuration = (seconds: string) => {
-    const secs = parseInt(seconds);
-    if (!secs || isNaN(secs)) return '-';
-    const mins = Math.floor(secs / 60);
-    const remainingSecs = secs % 60;
-    return `${mins}:${remainingSecs.toString().padStart(2, '0')}`;
-  };
-
-  const handleToggleFavourite = (track: Track) => {
-    const trackName = track.name;
-    const artist = track.artist?.name || artistName;
-
-    if (isFavourite(trackName, artist)) {
-      removeFavourite(trackName, artist);
-    } else {
-      addFavourite({
-        trackName,
-        artistName: artist,
-        albumName,
-        duration: track.duration,
-        addedAt: Date.now(),
-      });
-    }
-  };
-
   return (
     <Box overflowX='auto' borderWidth='1px' borderRadius='lg'>
       <Box as='table' width='100%' style={{ borderCollapse: 'collapse' }}>
@@ -93,43 +65,15 @@ export const TrackList = ({
           </Box>
         </Box>
         <Box as='tbody'>
-          {tracks.map((track, index) => {
-            const trackName = track.name;
-            const artist = track.artist?.name || artistName;
-            const isFav = isFavourite(trackName, artist);
-
-            return (
-              <Box
-                as='tr'
-                key={`${track.name}-${index}`}
-                _hover={{ bg: 'gray.50' }}
-                transition='background 0.2s'
-              >
-                <Box as='td' p={3}>
-                  <Text color='gray.600' fontWeight='medium'>
-                    {track['@attr']?.rank || index + 1}
-                  </Text>
-                </Box>
-                <Box as='td' p={3}>
-                  <Text fontWeight='medium'>{track.name}</Text>
-                </Box>
-                <Box as='td' p={3}>
-                  <Text color='gray.600'>{formatDuration(track.duration)}</Text>
-                </Box>
-                <Box as='td' p={3} textAlign='center'>
-                  <IconButton
-                    aria-label='Toggle favourite'
-                    variant='ghost'
-                    colorScheme={isFav ? 'red' : 'gray'}
-                    size='sm'
-                    onClick={() => handleToggleFavourite(track)}
-                  >
-                    <Heart size={18} fill={isFav ? 'currentColor' : 'none'} />
-                  </IconButton>
-                </Box>
-              </Box>
-            );
-          })}
+          {tracks.map((track, index) => (
+            <TrackRow
+              key={`${track.name}-${index}`}
+              track={track}
+              index={index}
+              albumName={albumName}
+              artistName={artistName}
+            />
+          ))}
         </Box>
       </Box>
     </Box>

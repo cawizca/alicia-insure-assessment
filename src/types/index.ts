@@ -80,6 +80,13 @@ export interface TrackListProps {
   artistName: string;
 }
 
+export interface TrackRowProps {
+  track: Track;
+  index: number;
+  albumName: string;
+  artistName: string;
+}
+
 // Page Props
 export interface AlbumDetailProps {
   artistName: string;
