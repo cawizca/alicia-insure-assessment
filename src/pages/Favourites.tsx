@@ -13,6 +13,14 @@ import {
 import { Heart, Search as SearchIcon } from 'lucide-react';
 import { useStore } from '../store/useStore';
 
+/**
+ * Favourites Page
+ *
+ * Displays a list of user's favourite tracks saved from album details or search results.
+ * Features search/filter functionality to find specific favourites by track, artist, or album name.
+ * Shows track details including duration, album, artist, and when it was added.
+ * Allows users to remove tracks from favourites. Data persists in localStorage via Zustand.
+ */
 export const Favourites = () => {
   const { favourites, removeFavourite } = useStore();
   const [searchQuery, setSearchQuery] = useState('');

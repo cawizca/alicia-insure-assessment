@@ -1,6 +1,13 @@
 import { Image, Text, Badge, Box, VStack } from '@chakra-ui/react';
 import { AlbumCardProps } from '../types';
 
+/**
+ * AlbumCard Component
+ *
+ * Displays an individual album card with cover image, album name, artist name, and play count.
+ * Features hover effects and click handling for navigation to album details.
+ * Uses optimized image loading (lazy loading) to improve performance.
+ */
 export const AlbumCard = ({ album, onClick }: AlbumCardProps) => {
   const getImageUrl = () => {
     // Prefer medium or large images to reduce memory usage
