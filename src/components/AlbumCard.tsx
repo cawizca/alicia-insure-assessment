@@ -42,9 +42,7 @@ export const AlbumCard = ({ album, onClick }: AlbumCardProps) => {
       bg='white'
     >
       <Image
-        src={
-          getImageUrl() || 'https://via.placeholder.com/300x300?text=No+Image'
-        }
+        src={getImageUrl() || 'https://placehold.co/600x400?text=No+Image'}
         alt={album.name}
         objectFit='cover'
         w='100%'

@@ -80,6 +80,23 @@ export interface TrackListProps {
   artistName: string;
 }
 
+export interface TrackRowProps {
+  track: Track;
+  index: number;
+  albumName: string;
+  artistName: string;
+}
+
+export interface FavouriteRowProps {
+  favourite: Favourite;
+  index: number;
+}
+
+export interface SearchTrackRowProps {
+  track: Track;
+  index: number;
+}
+
 // Page Props
 export interface AlbumDetailProps {
   artistName: string;
