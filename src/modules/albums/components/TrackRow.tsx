@@ -1,7 +1,7 @@
 import { IconButton, Text, Box } from '@chakra-ui/react';
 import { Heart } from 'lucide-react';
-import { TrackRowProps } from '../types';
-import { useStore } from '../store/useStore';
+import { TrackRowProps } from '../../../core/types';
+import { useStore } from '../../../core/store';
 
 /**
  * TrackRow Component

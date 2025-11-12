@@ -18,10 +18,10 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import { Search as SearchIcon, AlertCircle } from 'lucide-react';
-import { lastfmAPI } from '../services/lastfm';
-import { Album, Track, SearchProps } from '../types';
-import { AlbumCard } from '../components/AlbumCard';
-import { SearchTrackRow } from '../components/SearchTrackRow';
+import { lastfmAPI } from '../../../core/services';
+import { Album, Track, SearchProps } from '../../../core/types';
+import { AlbumCard } from '../../albums/components';
+import { SearchTrackRow } from '../components';
 
 /**
  * Search Page
