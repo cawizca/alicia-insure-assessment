@@ -17,6 +17,15 @@ import { lastfmAPI } from '../services/lastfm';
 import { Album, SortOption, AlbumOverviewProps } from '../types';
 import { AlbumCard } from '../components/AlbumCard';
 
+/**
+ * AlbumOverview Page
+ *
+ * Main landing page that displays top chart albums from Last.fm.
+ * Features artist search functionality, sorting options, and infinite scroll pagination.
+ * Shows either top chart albums (random rock albums) or search results for specific artists.
+ * Implements memory optimization with album count limits and proper observer cleanup.
+ */
+
 const ITEMS_PER_PAGE = 8;
 
 export const AlbumOverview = ({ onAlbumClick }: AlbumOverviewProps) => {

@@ -3,6 +3,13 @@ import { Heart } from 'lucide-react';
 import { Track, TrackListProps } from '../types';
 import { useStore } from '../store/useStore';
 
+/**
+ * TrackList Component
+ *
+ * Displays a table of tracks from an album with track number, name, duration, and favourite toggle.
+ * Allows users to add/remove tracks to/from their favourites list.
+ * Integrates with Zustand store for favourites management.
+ */
 export const TrackList = ({
   tracks,
   albumName,

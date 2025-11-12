@@ -24,6 +24,15 @@ import { Album, Track, SearchProps } from '../types';
 import { AlbumCard } from '../components/AlbumCard';
 import { useStore } from '../store/useStore';
 
+/**
+ * Search Page
+ *
+ * Provides search functionality for tracks and albums from Last.fm API.
+ * Features tabbed interface to switch between track and album search results.
+ * Implements lazy loading for large result sets with memory optimization limits.
+ * Tracks can be added to favourites directly from search results.
+ */
+
 const ITEMS_PER_PAGE = 6;
 const MAX_DISPLAY_ITEMS = 30; // Limit to prevent memory issues
 

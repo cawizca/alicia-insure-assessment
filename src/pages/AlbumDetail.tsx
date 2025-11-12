@@ -17,6 +17,13 @@ import { lastfmAPI } from '../services/lastfm';
 import { AlbumDetail as AlbumDetailType, AlbumDetailProps } from '../types';
 import { TrackList } from '../components/TrackList';
 
+/**
+ * AlbumDetail Page
+ *
+ * Displays detailed information about a specific album including cover art, artist name,
+ * play count, listener count, wiki information, and a complete track listing.
+ * Users can navigate back to the album overview or add individual tracks to favourites.
+ */
 export const AlbumDetail = ({
   artistName,
   albumName,
