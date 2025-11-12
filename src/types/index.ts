@@ -87,6 +87,11 @@ export interface TrackRowProps {
   artistName: string;
 }
 
+export interface FavouriteRowProps {
+  favourite: Favourite;
+  index: number;
+}
+
 // Page Props
 export interface AlbumDetailProps {
   artistName: string;

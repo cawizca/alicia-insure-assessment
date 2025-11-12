@@ -87,9 +87,6 @@ describe('AlbumCard', () => {
     );
 
     const image = screen.getByRole('img', { name: 'Test Album' });
-    expect(image).toHaveAttribute(
-      'src',
-      expect.stringContaining('placeholder')
-    );
+    expect(image).toHaveAttribute('src', expect.stringContaining('placehold'));
   });
 });
