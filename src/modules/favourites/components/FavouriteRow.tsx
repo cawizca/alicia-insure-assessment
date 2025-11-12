@@ -1,7 +1,7 @@
 import { IconButton, Text, Badge, Box } from '@chakra-ui/react';
 import { Heart } from 'lucide-react';
-import { FavouriteRowProps } from '../types';
-import { useStore } from '../store/useStore';
+import { FavouriteRowProps } from '../../../core/types';
+import { useStore } from '../../../core/store';
 
 /**
  * FavouriteRow Component

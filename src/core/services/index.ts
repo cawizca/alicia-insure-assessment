@@ -1,0 +1,1 @@
+export { lastfmAPI } from './lastfm';

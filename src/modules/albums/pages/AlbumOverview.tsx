@@ -13,9 +13,9 @@ import {
   Alert,
 } from '@chakra-ui/react';
 import { AlertCircle } from 'lucide-react';
-import { lastfmAPI } from '../services/lastfm';
-import { Album, SortOption, AlbumOverviewProps } from '../types';
-import { AlbumCard } from '../components/AlbumCard';
+import { lastfmAPI } from '../../../core/services';
+import { Album, SortOption, AlbumOverviewProps } from '../../../core/types';
+import { AlbumCard } from '../components';
 
 /**
  * AlbumOverview Page

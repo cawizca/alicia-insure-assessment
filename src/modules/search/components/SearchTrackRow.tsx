@@ -1,7 +1,7 @@
 import { IconButton, Text, Box } from '@chakra-ui/react';
 import { Heart } from 'lucide-react';
-import { SearchTrackRowProps } from '../types';
-import { useStore } from '../store/useStore';
+import { SearchTrackRowProps } from '../../../core/types';
+import { useStore } from '../../../core/store';
 
 /**
  * SearchTrackRow Component

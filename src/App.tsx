@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { Button, Badge, Box, Flex, HStack } from '@chakra-ui/react';
 import { Music, Search as SearchIcon, Heart } from 'lucide-react';
-import { AlbumOverview } from './pages/AlbumOverview';
-import { AlbumDetail } from './pages/AlbumDetail';
-import { Search } from './pages/Search';
-import { Favourites } from './pages/Favourites';
-import { useStore } from './store/useStore';
-import { View, AlbumView } from './types';
+import { AlbumOverview, AlbumDetail } from './modules/albums/pages';
+import { Search } from './modules/search/pages';
+import { Favourites } from './modules/favourites/pages';
+import { useStore } from './core/store';
+import { View, AlbumView } from './core/types';
 
 function App() {
   const [currentView, setCurrentView] = useState<View>('overview');

@@ -9,8 +9,8 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { Heart, Search as SearchIcon } from 'lucide-react';
-import { useStore } from '../store/useStore';
-import { FavouriteRow } from '../components/FavouriteRow';
+import { useStore } from '../../../core/store';
+import { FavouriteRow } from '../components';
 
 /**
  * Favourites Page

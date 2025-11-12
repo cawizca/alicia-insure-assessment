@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
 import { AlbumCard } from '../AlbumCard';
-import { Album } from '../../types';
+import { Album } from '../../../../core/types';
 
 // Helper to wrap components with ChakraProvider
 const renderWithChakra = (component: React.ReactElement) => {

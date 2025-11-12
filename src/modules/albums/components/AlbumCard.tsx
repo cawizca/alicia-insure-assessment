@@ -1,5 +1,5 @@
 import { Image, Text, Badge, Box, VStack } from '@chakra-ui/react';
-import { AlbumCardProps } from '../types';
+import { AlbumCardProps } from '../../../core/types';
 
 /**
  * AlbumCard Component

@@ -1,5 +1,5 @@
 // Mock the lastfm module to avoid import.meta.env issues
-jest.mock('../../core/services/lastfm', () => ({
+jest.mock('../lastfm', () => ({
   lastfmAPI: {
     getTopChartAlbums: jest.fn(),
     getArtistTopAlbums: jest.fn(),
@@ -8,7 +8,7 @@ jest.mock('../../core/services/lastfm', () => ({
   },
 }));
 
-import { lastfmAPI } from '../../core/services/lastfm';
+import { lastfmAPI } from '../lastfm';
 
 const mockedLastfmAPI = lastfmAPI as jest.Mocked<typeof lastfmAPI>;
 

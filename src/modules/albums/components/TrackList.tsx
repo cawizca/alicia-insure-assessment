@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { TrackListProps } from '../types';
+import { TrackListProps } from '../../../core/types';
 import { TrackRow } from './TrackRow';
 
 /**

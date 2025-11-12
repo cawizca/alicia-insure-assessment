@@ -13,9 +13,9 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { ArrowLeft, AlertCircle } from 'lucide-react';
-import { lastfmAPI } from '../services/lastfm';
-import { AlbumDetail as AlbumDetailType, AlbumDetailProps } from '../types';
-import { TrackList } from '../components/TrackList';
+import { lastfmAPI } from '../../../core/services';
+import { AlbumDetail as AlbumDetailType, AlbumDetailProps } from '../../../core/types';
+import { TrackList } from '../components';
 
 /**
  * AlbumDetail Page
