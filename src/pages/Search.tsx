@@ -6,7 +6,6 @@ import {
   Text,
   Spinner,
   Alert,
-  IconButton,
   TabsRoot,
   TabsList,
   TabsContent,
@@ -18,11 +17,11 @@ import {
   HStack,
   SimpleGrid,
 } from '@chakra-ui/react';
-import { Search as SearchIcon, Heart, AlertCircle } from 'lucide-react';
+import { Search as SearchIcon, AlertCircle } from 'lucide-react';
 import { lastfmAPI } from '../services/lastfm';
 import { Album, Track, SearchProps } from '../types';
 import { AlbumCard } from '../components/AlbumCard';
-import { useStore } from '../store/useStore';
+import { SearchTrackRow } from '../components/SearchTrackRow';
 
 /**
  * Search Page
@@ -51,8 +50,6 @@ export const Search = ({ onAlbumClick }: SearchProps) => {
   const tracksObserverTarget = useRef<HTMLDivElement>(null);
   const albumsObserverRef = useRef<IntersectionObserver | null>(null);
   const tracksObserverRef = useRef<IntersectionObserver | null>(null);
-
-  const { addFavourite, removeFavourite, isFavourite } = useStore();
 
   const handleSearch = async () => {
     if (!query.trim()) return;
@@ -171,31 +168,6 @@ export const Search = ({ onAlbumClick }: SearchProps) => {
     }
   };
 
-  const formatDuration = (seconds: string) => {
-    const secs = parseInt(seconds);
-    if (!secs || isNaN(secs)) return '-';
-    const mins = Math.floor(secs / 60);
-    const remainingSecs = secs % 60;
-    return `${mins}:${remainingSecs.toString().padStart(2, '0')}`;
-  };
-
-  const handleToggleFavourite = (track: Track) => {
-    const trackName = track.name;
-    const artist = track.artist?.name || '';
-
-    if (isFavourite(trackName, artist)) {
-      removeFavourite(trackName, artist);
-    } else {
-      addFavourite({
-        trackName,
-        artistName: artist,
-        albumName: track.album?.title || 'Unknown Album',
-        duration: track.duration || '0',
-        addedAt: Date.now(),
-      });
-    }
-  };
-
   return (
     <Container
       maxW='container.xl'
@@ -311,48 +283,13 @@ export const Search = ({ onAlbumClick }: SearchProps) => {
                           </Box>
                         </Box>
                         <Box as='tbody'>
-                          {displayedTracks.map((track, index) => {
-                            const isFav = isFavourite(
-                              track.name,
-                              track.artist?.name || ''
-                            );
-
-                            return (
-                              <Box
-                                as='tr'
-                                key={`${track.name}-${index}`}
-                                _hover={{ bg: 'gray.50' }}
-                              >
-                                <Box as='td' p={3}>
-                                  <Text fontWeight='medium'>{track.name}</Text>
-                                </Box>
-                                <Box as='td' p={3}>
-                                  <Text color='gray.600'>
-                                    {track.artist?.name}
-                                  </Text>
-                                </Box>
-                                <Box as='td' p={3}>
-                                  <Text color='gray.600'>
-                                    {formatDuration(track.duration)}
-                                  </Text>
-                                </Box>
-                                <Box as='td' p={3} textAlign='center'>
-                                  <IconButton
-                                    aria-label='Toggle favourite'
-                                    variant='ghost'
-                                    colorScheme={isFav ? 'red' : 'gray'}
-                                    size='sm'
-                                    onClick={() => handleToggleFavourite(track)}
-                                  >
-                                    <Heart
-                                      size={18}
-                                      fill={isFav ? 'currentColor' : 'none'}
-                                    />
-                                  </IconButton>
-                                </Box>
-                              </Box>
-                            );
-                          })}
+                          {displayedTracks.map((track, index) => (
+                            <SearchTrackRow
+                              key={`${track.name}-${index}`}
+                              track={track}
+                              index={index}
+                            />
+                          ))}
                         </Box>
                       </Box>
                     </Box>

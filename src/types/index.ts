@@ -92,6 +92,11 @@ export interface FavouriteRowProps {
   index: number;
 }
 
+export interface SearchTrackRowProps {
+  track: Track;
+  index: number;
+}
+
 // Page Props
 export interface AlbumDetailProps {
   artistName: string;
